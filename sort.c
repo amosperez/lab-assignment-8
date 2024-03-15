@@ -115,18 +115,23 @@ int parseData(char *inputFileName, int **ppData)
 // prints first and last 100 items in the data array
 void printArray(int pData[], int dataSz)
 {
-	int i, sz = dataSz - 100;
+	int i;
 	printf("\tData:\n\t");
-	for (i=0;i<100;++i)
-	{
-		printf("%d ",pData[i]);
+	if(!(dataSz >= 300)){
+		for (i=0;i<dataSz;++i){
+			printf("%d ",pData[i]);
+		}
+	} else {
+		int sz = dataSz - 100;
+		for (i=0;i<100;++i){
+			printf("%d ",pData[i]);
+		}
+		printf("\n\t");
+		for (i=sz;i<dataSz;++i){
+			printf("%d ",pData[i]);
+		}
 	}
-	printf("\n\t");
-	
-	for (i=sz;i<dataSz;++i)
-	{
-		printf("%d ",pData[i]);
-	}
+
 	printf("\n\n");
 }
 
